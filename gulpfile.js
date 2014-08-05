@@ -25,7 +25,7 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('builds/development/js'));
 });
 
-gulp.task('default', ['coffee', 'js', 'compass'], function() {
+gulp.task('default', ['coffee', 'js', 'compass', 'watch'], function() {
 	gulp.src(jsSources)
 		.pipe(concat('scripts.js'))
 		.pipe(browserify())
