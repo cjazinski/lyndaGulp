@@ -13,9 +13,10 @@
     "url": "https://github.com/cjazinski/lyndaGulp/issues"
   },
   "homepage": "https://github.com/cjazinski/lyndaGulp",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-util": "^3.0.0",
-    "gulp-coffee": "^2.1.1"
+    "gulp-coffee": "^2.1.1",
+    "gulp-concat": "^2.3.4"
   }
 }
