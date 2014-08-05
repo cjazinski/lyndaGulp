@@ -5,6 +5,7 @@ var coffee = require('gulp-coffee');
 var concat = require('gulp-concat');
 var browserify = require('gulp-browserify');
 var compass = require('gulp-compass');
+var connect = require('gulp-connect');
 
 //Easier to read
 var coffeeSources = ['components/coffee/tagline.coffee']; //can use * wildcard
@@ -22,14 +23,23 @@ gulp.task('js', function() {
 	gulp.src(jsSources)
 		.pipe(concat('scripts.js'))
 		.pipe(browserify())
-		.pipe(gulp.dest('builds/development/js'));
+		.pipe(gulp.dest('builds/development/js'))
+		.pipe(connect.reload())
 });
 
-gulp.task('default', ['coffee', 'js', 'compass', 'watch'], function() {
+gulp.task('default', ['coffee', 'js', 'compass', 'connect', 'watch'], function() {
 	gulp.src(jsSources)
 		.pipe(concat('scripts.js'))
 		.pipe(browserify())
 		.pipe(gulp.dest('builds/development/js'));
+});
+
+//Starts a server
+gulp.task('connect', function() {
+	connect.server({
+		root: 'builds/development/',
+		livereload: true
+	});
 });
 
 gulp.task('watch', function() {
@@ -47,5 +57,6 @@ gulp.task('compass', function() {
 		}))
 		.on('error', gutil.log)
 		.pipe(gulp.dest('builds/development/css'))
+		.pipe(connect.reload())
 
 });
