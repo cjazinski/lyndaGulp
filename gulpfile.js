@@ -32,6 +32,12 @@ gulp.task('default', ['coffee', 'js', 'compass'], function() {
 		.pipe(gulp.dest('builds/development/js'));
 });
 
+gulp.task('watch', function() {
+	gulp.watch(coffeeSources, ['coffee']);
+	gulp.watch(jsSources, ['js']);
+	gulp.watch('components/sass/*.scss', ['compass']);
+});
+
 gulp.task('compass', function() {
 	gulp.src(sassSources)
 		.pipe(compass({
