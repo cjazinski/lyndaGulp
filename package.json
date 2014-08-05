@@ -1,0 +1,16 @@
+{
+  "name": "lynda",
+  "version": "0.0.1",
+  "description": "A Project to showcase workflows",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cjazinski/lyndaGulp.git"
+  },
+  "author": "Christopher Jazinski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjazinski/lyndaGulp/issues"
+  },
+  "homepage": "https://github.com/cjazinski/lyndaGulp"
+}
