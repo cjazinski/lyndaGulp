@@ -22,11 +22,3 @@
 		height: 100px;
 	}
 }
-
-@mixin clearfix {
-	$:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
