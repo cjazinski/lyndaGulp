@@ -25,6 +25,13 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('builds/development/js'));
 });
 
+gulp.task('default', ['coffee', 'js', 'compass'], function() {
+	gulp.src(jsSources)
+		.pipe(concat('scripts.js'))
+		.pipe(browserify())
+		.pipe(gulp.dest('builds/development/js'));
+});
+
 gulp.task('compass', function() {
 	gulp.src(sassSources)
 		.pipe(compass({
