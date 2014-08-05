@@ -11,6 +11,7 @@ var connect = require('gulp-connect');
 var coffeeSources = ['components/coffee/tagline.coffee']; //can use * wildcard
 var jsSources = ['components/scripts/*.js'];
 var sassSources = ['components/sass/style.scss'];
+var htmlSources = ['builds/development/*.html'];
 
 gulp.task('coffee', function() {
 	gulp.src(coffeeSources)
@@ -42,10 +43,17 @@ gulp.task('connect', function() {
 	});
 });
 
+//Pickup changes in HTML
+gulp.task('html', function() {
+	gulp.src(htmlSources)
+		.pipe(connect.reload());
+});
+
 gulp.task('watch', function() {
 	gulp.watch(coffeeSources, ['coffee']);
 	gulp.watch(jsSources, ['js']);
 	gulp.watch('components/sass/*.scss', ['compass']);
+	gulp.watch(htmlSources, ['html']);
 });
 
 gulp.task('compass', function() {
